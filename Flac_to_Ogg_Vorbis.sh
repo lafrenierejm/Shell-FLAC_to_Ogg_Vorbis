@@ -22,7 +22,7 @@ else
 		cd "$SRC_DIR"		# Loop through the source directory
 		for i in *.flac; do oggenc -q6 -o "${DST_DIR}${i%%flac}ogg" "$i"; done
 	else
-		echo "Source directory "$SRC_DIR" does not exist"
+		echo "Source directory $SRC_DIR does not exist"
 	fi
 fi
 
