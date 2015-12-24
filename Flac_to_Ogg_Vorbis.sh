@@ -1,7 +1,11 @@
 # Original script provided by will177 on LinuxQuestions.org
 # www.linuxquestions.org/questions/linux-general-1/bash-script-to-convert-flac-album-to-ogg-vorbis-preserving-tags-772235/
 
-if [ $# -lt 2 ]; then
+# Ensure that oggenc is available
+# Exit with code 1 otherwise
+command -v oggenc >/dev/null 2>&1 || { echo "This script requires oggenc. Aborting." >&2; exit 1; }
+
+if [ $# -lt 2 ]; then	# Ensure that two arguments were supplied
 	echo "Please supply the source of the FLAC files (e.g. ~/Music/FLAC/Artist_Name/Album/) followed by the desired destination (e.g. ~/Music/ogg/Artist_Name/Album/)."
 else
 	SRC_DIR=$1	# First argument is the source directory
