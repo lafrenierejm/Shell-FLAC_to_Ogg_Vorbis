@@ -22,8 +22,8 @@
 # Ensure that oggenc is available
 ## Exit -1 otherwise
 command -v oggenc >/dev/null 2>&1 || {
-	printf "This script requires oggenc. Aborting.\n" >&2;
-	exit -1;
+	printf "This script requires oggenc. Aborting.\n" >&2
+	exit -1
 }
 
 # Ensure that two arguments were supplied
