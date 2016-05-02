@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/sh
 
 # Original script provided by will177 on LinuxQuestions.org
 # www.linuxquestions.org/questions/linux-general-1/bash-script-to-convert-flac-album-to-ogg-vorbis-preserving-tags-772235/
@@ -54,7 +54,7 @@ if [ -d "$dst_dir" ]; then
 	# Get user input
 	read -r write_existing_dst
 	case "$write_existing_dst" in
-		# If input began with 'y' or 'Y', break and continue
+		# Break if input began with 'y' or 'Y'
 		[yY]*)
 			;;
 		# Else exit 0
@@ -62,12 +62,6 @@ if [ -d "$dst_dir" ]; then
 			printf "Exiting without writing\n"
 			exit 0
 	esac
-
-	# If user did not input 'Y' or 'y', exit script
-	if [ "$write_existing_dst" != "Y" ] && [ "$write_existing_dst" != "y" ]; then
-		printf "\n"
-		exit 0
-	fi
 fi
 
 # Make the destination directory
